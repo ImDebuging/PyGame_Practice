@@ -1,4 +1,5 @@
 import pygame
+from colors import Colors
 class Grid:
     def __init__(self):
         self.num_rows=20    #地图的行数
@@ -7,25 +8,13 @@ class Grid:
         #地图用二维列表来存储，全部元素初始化为0
         self.grid=[[0 for j in range(self.num_cols)]
                    for i in range(self.num_rows)]
-        self.colors = self.get_cell_color()
+        self.colors = Colors.get_cell_colors()
 
     def print_grid(self):
         for row in range(self.num_rows):
             for col in range(self.num_cols):
                     print(self.grid[row][col],end=" ")
             print()
-
-    def get_cell_color(self):
-        dark_green = (26,31,40)
-        green = (47,230,23)
-        red = (232,18,18)
-        orange = (26,116,17)
-        yellow = (37,234,4)
-        purple = (66,0,247)
-        cyan = (21,204,209)
-        blue = (13,64,216)
-
-        return [dark_green,green,red,orange,yellow,purple,cyan,blue]
 
     def draw(self,screen):
         for row in range(self.num_rows):
